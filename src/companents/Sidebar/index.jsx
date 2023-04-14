@@ -1,6 +1,7 @@
 import React from 'react';
 import Avatar from '../../assets/images/avatar.png'
 import './index.scss'
+import { Link } from 'react-router-dom';
 
 const index = () => {
     return (
@@ -17,18 +18,18 @@ const index = () => {
                         <h3 className='sidebar__admin--role'>Admin</h3>
                     </div>
                     <nav className='sidebar__nav'>
-                            <button className='sidebar__nav--button'>
+                            <Link to="/home" className='sidebar__nav--button'>
                             <p className='sidebar__nav--button-home' >Home</p>
-                            </button>
+                            </Link>
                             <button className='sidebar__nav--button'>
                             <p className='sidebar__nav--button-course' >Course</p>
                             </button>
-                            <button className='sidebar__nav--button'>
+                            <Link to='/students' className='sidebar__nav--button'>
                             <p className='sidebar__nav--button-students' >Students</p>
-                            </button>
-                            <button className='sidebar__nav--button'>
+                            </Link>
+                            <Link to='/pay' className='sidebar__nav--button'>
                             <p className='sidebar__nav--button-payment' >Payment</p>
-                            </button>
+                            </Link>
                             <button className='sidebar__nav--button'>
                             <p className='sidebar__nav--button-report' >Report</p>
                             </button>
@@ -38,9 +39,9 @@ const index = () => {
                             
                         
                     </nav>
-                    <button className='sidebar__footer'>
+                    <Link to='/' className='sidebar__footer'>
                             <p className='sidebar__footer--logout' >Logout</p>
-                    </button>
+                    </Link>
                 </div>
             </div>
         </>

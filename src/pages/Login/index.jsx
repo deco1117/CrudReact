@@ -1,6 +1,7 @@
 import React from 'react';
 import Logo from '../../assets/images/logo.png';
 import './index.scss';
+import { Link } from 'react-router-dom';
 
 const index = () => {
     return (
@@ -24,7 +25,7 @@ const index = () => {
                                     <input className='form-control login__card--form--group-input' type='password' placeholder='Password'/>
                                 </div>
                                 <div className='login__card--form-group'>
-                                    <button className='btn w-100 btn-primary login__card--form--group-button'>Sign In</button>
+                                    <Link to='/home'  className='btn w-100 btn-primary login__card--form--group-button'>Sign In</Link>
                                 </div>
                             </form>
                             <div className='login__card--footer'>
