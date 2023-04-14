@@ -1,0 +1,130 @@
+.home{
+
+    &__wrapper{
+        width: 1170px;
+        display: flex;
+        padding-top: 30px;
+        justify-content: center;
+        column-gap: 30px;
+
+        &--stud{
+            padding: 24px 20px 20px 20px;
+            width: 255px;
+            background: #F0F9FF;
+            border-radius: 8px;
+
+
+            &-title{
+                margin-top: 20px;
+                font-style: normal;
+                font-weight: 500;
+                font-size: 14px;
+                line-height: 17px;
+                color: #6C6C6C;
+            }
+
+            &-text{
+                margin-top: 10px;
+                display: flex;
+                justify-content: end;
+                font-style: normal;
+                font-weight: 700;
+                font-size: 30px;
+                line-height: 37px;
+                text-transform: uppercase;
+                color: #000000;
+
+            }
+        }
+
+        &--course{
+            padding: 24px 20px 20px 20px;
+            width: 255px;
+            background: #FEF6FB;;
+            border-radius: 8px;
+
+
+            &-title{
+                margin-top: 20px;
+                font-style: normal;
+                font-weight: 500;
+                font-size: 14px;
+                line-height: 17px;
+                color: #6C6C6C;
+            }
+
+            &-text{
+                margin-top: 10px;
+                display: flex;
+                justify-content: end;
+                font-style: normal;
+                font-weight: 700;
+                font-size: 30px;
+                line-height: 37px;
+                text-transform: uppercase;
+                color: #000000;
+
+            }
+        }
+
+        &--pay{
+            padding: 24px 20px 20px 20px;
+            width: 255px;
+            background: #FEFBEC;
+            border-radius: 8px;
+
+
+            &-title{
+                margin-top: 20px;
+                font-style: normal;
+                font-weight: 500;
+                font-size: 14px;
+                line-height: 17px;
+                color: #6C6C6C;
+            }
+
+            &-text{
+                margin-top: 10px;
+                display: flex;
+                justify-content: end;
+                font-style: normal;
+                font-weight: 700;
+                font-size: 30px;
+                line-height: 37px;
+                text-transform: uppercase;
+                color: #000000;
+
+            }
+        }
+
+        &--user{ 
+            padding: 24px 20px 20px 20px;
+            width: 255px;
+            background: linear-gradient(110.42deg, #FEAF00 18.27%, #F8D442 91.84%);
+            border-radius: 8px;
+
+
+            &-title{
+                margin-top: 20px;
+                font-style: normal;
+                font-weight: 500;
+                font-size: 14px;
+                line-height: 17px;
+                color: #6C6C6C;
+            }
+
+            &-text{
+                margin-top: 10px;
+                display: flex;
+                justify-content: end;
+                font-style: normal;
+                font-weight: 700;
+                font-size: 30px;
+                line-height: 37px;
+                text-transform: uppercase;
+                color: #000000;
+
+            }
+        }
+    }
+}
