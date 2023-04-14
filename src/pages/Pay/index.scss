@@ -1,0 +1,7 @@
+.bar{grid-area: bar;} 
+.hd{grid-area: hd;} 
+
+.grid-container{
+    display: grid;
+    grid-template-areas:'bar bar hd hd hd hd';
+}

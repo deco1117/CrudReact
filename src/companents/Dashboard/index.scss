@@ -13,6 +13,10 @@
             background: #F0F9FF;
             border-radius: 8px;
 
+            &:hover{
+                background: linear-gradient(110.42deg, #FEAF00 18.27%, #F8D442 91.84%);
+             }
+
 
             &-title{
                 margin-top: 20px;
@@ -42,7 +46,9 @@
             width: 255px;
             background: #FEF6FB;;
             border-radius: 8px;
-
+                &:hover{
+                    background: linear-gradient(110.42deg, #FEAF00 18.27%, #F8D442 91.84%);
+                }
 
             &-title{
                 margin-top: 20px;
@@ -72,6 +78,10 @@
             width: 255px;
             background: #FEFBEC;
             border-radius: 8px;
+            
+            &:hover{
+                background: linear-gradient(110.42deg, #FEAF00 18.27%, #F8D442 91.84%);
+             }
 
 
             &-title{
@@ -100,8 +110,12 @@
         &--user{ 
             padding: 24px 20px 20px 20px;
             width: 255px;
-            background: linear-gradient(110.42deg, #FEAF00 18.27%, #F8D442 91.84%);
             border-radius: 8px;
+            background-color: rgb(87, 196, 196);
+                
+                 &:hover{
+                    background: linear-gradient(110.42deg, #FEAF00 18.27%, #F8D442 91.84%);
+                 }
 
 
             &-title{
