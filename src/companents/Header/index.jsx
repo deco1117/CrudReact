@@ -16,9 +16,8 @@ import './index.scss'
                         <img src={Bell} className='header__search--bell' />
                         
                         <form action="" className='form border border-radius-5'>
-                            <input type="radio" />
-                            <label htmlFor=""><img className='cursor-pointer' src={Sun} /></label>
-                            <input type="radio" /><label htmlFor=""><img className='cursor-pointer' src={Moon} /></label>
+                            <input name='them' onChange={(e)=>{}} type="radio"value='sun' /> <label htmlFor=""><img className='cursor-pointer' src={Sun} /></label>
+                            <input name='them' onChange={(e)=>{}} type="radio" value="moon" /><label htmlFor=""><img className='cursor-pointer' src={Moon} /></label>
                         </form>
                     </div>
                 </div>

@@ -17,7 +17,7 @@ const index = () => {
                         <h2 className='sidebar__admin--name'>Karthi Madesh</h2>
                         <h3 className='sidebar__admin--role'>Admin</h3>
                     </div>
-                    <nav className='sidebar__nav'>
+                    <ul className='sidebar__nav'>
                             <Link to="/home" className='sidebar__nav--button'>
                             <p className='sidebar__nav--button-home' >Home</p>
                             </Link>
@@ -38,7 +38,7 @@ const index = () => {
                             </button>
                             
                         
-                    </nav>
+                    </ul>
                     <Link to='/' className='sidebar__footer'>
                             <p className='sidebar__footer--logout' >Logout</p>
                     </Link>

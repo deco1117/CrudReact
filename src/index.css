@@ -23,6 +23,10 @@ p{
   border-radius: 4px;
 }
 
+.app{
+  display: flex;
+}
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
