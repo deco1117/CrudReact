@@ -22,3 +22,7 @@ p{
   background: #FEAF00 !important;
   border-radius: 4px;
 }
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
