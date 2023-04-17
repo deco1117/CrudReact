@@ -7,20 +7,21 @@ import Header from './companents/Header'
 import Sidebar from './companents/Sidebar'
 import Error from './pages/Error'
 import {BrowserRouter, Route, Routes} from 'react-router-dom'
-import { context } from './context';
+import { context } from './context/context';
 
-const App = () => {
+function App (props) {
 
-const [mode, sttMode] = useState('');
+  const [lang, setLang] = useState('uz');
+  const [mode, setMode] = useState('off' || localStorage.getItem('theme', 'off'));
 
   return (
     <div>
 
-          <context.Provider value={(mode)} >
+          <context.Provider value = {{lang, mode}}>
           <div className='app container'>
             <Sidebar/>
               <div>
-                <Header/>
+                <Header setLang = {setLang} setMode = {setMode}/>
                 <Routes>
                     <Route path='/home' element={<Home/>}/>
                     <Route path='/students' element={<Students/>}/>
