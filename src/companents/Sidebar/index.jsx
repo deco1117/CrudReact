@@ -10,8 +10,19 @@ import HomeDark from '../../assets/images/home-dark.svg'
 import './index.scss'
 import { Link, NavLink } from 'react-router-dom';
 
+
+
+
+
+
+
 const index = () => {
-    const { mode } = useContext(context);
+
+        
+    const { mode, LANG, lang } = useContext(context);
+
+    const t = LANG[lang.toLowerCase()];
+
 
     const sidebarStyle = {
         backgroundColor: mode === 'off' ? '#F2EAE1' : '#2c2926',
@@ -28,53 +39,53 @@ const index = () => {
                     <div className='sidebar__admin'>
                         <img className='sidebar__admin--img' src={Avatar}></img>
                         <h2 className={' mt-[27px] font-normal text-xl font-medium sidebar__admin--name' + (mode === 'off' ? 'text-[#000000]' : 'text-[#fff]')}>Karthi Madesh</h2>
-                        <h3 className='sidebar__admin--role'>Admin</h3>
+                        <h3 className='sidebar__admin--role'>{t.role}</h3>
                     </div>
                     <div className='flex flex-column items-center gap-[20px] my-[80px] mb-[124px]'>
-                        <NavLink to="/home" className={' grid-cols-2 content-start pl-[53px] pt-[8px] w-[193px] h-[41px] '}>
+                        <NavLink to="/home" className={' grid-cols-2 content-start pl-[40px] pt-[8px] w-[193px] h-[41px] '}>
                             <div className=' flex items-center mx-auto gap-[15px]'>
                                 <img className='flex ' src={mode === 'off' ? Home : HomeDark} alt="icon" />
-                                <p className={'  ' + (mode === 'off' ? 'text-[#000000]' : 'text-[#fff]')}  >Home</p>
+                                <p className={'  ' + (mode === 'off' ? 'text-[#000000]' : 'text-[#fff]')}  >{t.home}</p>
                             </div>
                         </NavLink>
-                        <NavLink to="/course" className={' grid-cols-2 content-start pl-[53px] pt-[8px] w-[193px] h-[41px] items-center text-white '}>
+                        <NavLink to="/course" className={' grid-cols-2 content-start pl-[40px] pt-[8px] w-[193px] h-[41px] items-center text-white '}>
                             <div className='mx-auto flex  gap-[15px] '>
                                 <img src={mode === 'off' ? Home : HomeDark} alt="icon" />
-                                <p className={'  ' + (mode === 'off' ? 'text-[#000000]' : 'text-[#fff]')}  >Course</p>
+                                <p className={'  ' + (mode === 'off' ? 'text-[#000000]' : 'text-[#fff]')}  >{t.course}</p>
                             </div>
                         </NavLink>
-                        <NavLink to="/students" className={' grid-cols-2 content-start pl-[53px] pt-[8px] w-[193px] h-[41px] items-center text-white '}>
+                        <NavLink to="/students" className={' grid-cols-2 content-start pl-[40px] pt-[8px] w-[193px] h-[41px] items-center text-white '}>
                             <div className='mx-auto flex gap-[15px] '>
                                 <img src={mode === 'off' ? Home : HomeDark} alt="icon" />
-                                <p className={'  ' + (mode === 'off' ? 'text-[#000000]' : 'text-[#fff]')}  >Students</p>
+                                <p className={'  ' + (mode === 'off' ? 'text-[#000000]' : 'text-[#fff]')}  >{t.students}</p>
                             </div>
                         </NavLink>
-                        <NavLink to="/pay" className={' grid-cols-2 content-start pl-[53px] pt-[8px] w-[193px] h-[41px] items-center text-white '}>
+                        <NavLink to="/pay" className={' grid-cols-2 content-start pl-[40px] pt-[8px] w-[193px] h-[41px] items-center text-white '}>
                             <div className='mx-auto flex gap-[15px] '>
                                 <img src={mode === 'off' ? Home : HomeDark} alt="icon" />
-                                <p className={'  ' + (mode === 'off' ? 'text-[#000000]' : 'text-[#fff]')}  >Payment</p>
+                                <p className={'  ' + (mode === 'off' ? 'text-[#000000]' : 'text-[#fff]')}  >{t.payments}</p>
                             </div>
                         </NavLink>
-                        <NavLink to="/report" className={' grid-cols-2 content-start pl-[53px] pt-[8px] w-[193px] h-[41px] items-center text-white '}>
+                        <NavLink to="/report" className={' grid-cols-2 content-start pl-[40px] pt-[8px] w-[193px] h-[41px] items-center text-white '}>
                             <div className='mx-auto flex gap-[15px]'>
                                 <img src={mode === 'off' ? Home : HomeDark} alt="icon" />
-                                <p className={'  ' + (mode === 'off' ? 'text-[#000000]' : 'text-[#fff]')}  >Report</p>
+                                <p className={'  ' + (mode === 'off' ? 'text-[#000000]' : 'text-[#fff]')}  >{t.report}</p>
                             </div>
                         </NavLink>
-                        <NavLink to="/setting" className={' grid-cols-2 content-start pl-[53px] pt-[8px] w-[193px] h-[41px] items-center text-white '}>
+                        <NavLink to="/setting" className={' grid-cols-2 content-start pl-[40px] pt-[8px] w-[193px] h-[41px] items-center text-white '}>
                             <div className='mx-auto flex gap-[15px] '>
                                 <img src={mode === 'off' ? Home : HomeDark} alt="icon" />
-                                <p className={'  ' + (mode === 'off' ? 'text-[#000000]' : 'text-[#fff]')}  >Settings</p>
+                                <p className={'  ' + (mode === 'off' ? 'text-[#000000]' : 'text-[#fff]')}  >{t.settings}</p>
                             </div>
                         </NavLink>
 
 
                     </div>
                     <div className='flex flex-column items-center gap-[20px] mb-[80px]'>
-                        <NavLink to="/" className={' grid-cols-2 content-start pl-[53px] pt-[8px] w-[193px] h-[41px] items-center text-white '}>
+                        <NavLink to="/" className={' grid-cols-2 content-start pl-[40px] pt-[8px] w-[193px] h-[41px] items-center text-white '}>
                             <div className='mx-auto flex gap-[15px] fill-current '>
                                 <img src={mode === 'off' ? Home : HomeDark} alt="icon" />
-                                <p className={'  ' + (mode === 'off' ? 'text-[#000000]' : 'text-[#fff]')}  >Logout</p>
+                                <p className={'  ' + (mode === 'off' ? 'text-[#000000]' : 'text-[#fff]')}  >{t.logout}</p>
                             </div>
                         </NavLink>
                     </div>

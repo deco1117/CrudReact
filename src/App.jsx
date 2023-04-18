@@ -8,16 +8,18 @@ import Sidebar from './companents/Sidebar'
 import Error from './pages/Error'
 import {BrowserRouter, Route, Routes} from 'react-router-dom'
 import { context } from './context/context';
+import LANG from './lang/lang';
 
 function App (props) {
 
-  const [lang, setLang] = useState('uz');
+  const [lang, setLang] = useState(localStorage.getItem('languages') || 'uz');
   const [mode, setMode] = useState('off' || localStorage.getItem('theme', 'off'));
+
 
   return (
     <div>
-
-          <context.Provider value = {{lang, mode}}>
+ 
+          <context.Provider value = {{lang, mode, LANG}}>
           <div className='app container'>
             <Sidebar/>
               <div>

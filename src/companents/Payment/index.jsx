@@ -1,15 +1,20 @@
-import React from 'react';
+import React,{useContext} from 'react';
+import {context} from '../../context/context'
 import Scrool from '../../assets/images/scrool.svg'
 import Eye from '../../assets/images/eye.svg'
 import './index.scss'
 
 const index = () => {
+    const { mode, LANG, lang } = useContext(context);
+
+    const t = LANG[lang.toLowerCase()];
+
     return (
         <div>
             <div className='studentlist'>
                 <div className='studentlist__header'>
                     <h1 className='studentlist__header--title'>
-                        Payment Details
+                        {t.payDetails}
                     </h1>
                     <div className='studentlist__header--end'>
                         <img className='studentlist__header--end-scrool' src={Scrool} />
@@ -18,12 +23,12 @@ const index = () => {
                 <table class="table table-striped">
                 <thead>
                     <tr>
-                    <th scope="col" className='table-head'>Name</th>
-                    <th scope="col" className='table-head'>Payment Schedule</th>
-                    <th scope="col" className='table-head'>Bill Number</th>
-                    <th scope="col" className='table-head'>Amount Paid</th>
-                    <th scope="col" className='table-head'>Balance amount</th> 
-                    <th scope="col" className='table-head'>Date </th> 
+                    <th scope="col" className='table-head'>{t.name}</th>
+                    <th scope="col" className='table-head'>{t.paySchedule}</th>
+                    <th scope="col" className='table-head'>{t.bill}</th>
+                    <th scope="col" className='table-head'>{t.paid}</th>
+                    <th scope="col" className='table-head'>{t.balance}</th> 
+                    <th scope="col" className='table-head'>{t.date} </th> 
                     <th scope="col" className='table-head'></th> 
                     </tr>
                 </thead>

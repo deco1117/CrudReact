@@ -1,4 +1,5 @@
-import React from 'react';
+import React,{useContext} from 'react';
+import {context} from '../../context/context'
 import Scrool from '../../assets/images/scrool.svg'
 import Miniavatar from '../../assets/images/miniavatar.png'
 import Edit from '../../assets/images/edit.svg'
@@ -6,36 +7,40 @@ import Del from '../../assets/images/del.svg'
 import './index.scss'
 
 const index = () => {
+
+    const { mode, LANG, lang } = useContext(context);
+
+    const t = LANG[lang.toLowerCase()];
     return (
         <div>
             <div className='studentlist'>
                 <div className='studentlist__header'>
                     <h1 className='studentlist__header--title'>
-                        Students List
+                        {t.studentList}
                     </h1>
                     <div className='studentlist__header--end'>
                         <img className='studentlist__header--end-scrool' src={Scrool} />
                         <button className='studentlist__header--end-button'>
-                            ADD NEW STUDENT
+                            {t.addNewStudent}
                         </button>
                     </div>     
                 </div>
                 <div className='studentlist__table'>
                     <div className='studentlist__table--body'>
                         <h6 className='studentlist__table--body-title'>
-                            Name
+                            {t.name}
                         </h6>
                         <h6 className='studentlist__table--body-title'>
-                            Email
+                            {t.email}
                         </h6>
                         <h6 className='studentlist__table--body-title'>
-                            Phone
+                            {t.phone}
                         </h6>
                         <h6 className='studentlist__table--body-title'>
-                            Enroll Number
+                            {t.enrollNumber}
                         </h6>
                         <h6 className='studentlist__table--body-title'>
-                            Date of admission
+                            {t.dataAdmission}
                         </h6>
                     </div>
                     <div className='studentlist__table--card'>
