@@ -1,8 +1,14 @@
-import React from 'react';
+import React, {useContext} from 'react';
+import {context} from '../../context/context'
 import './index.scss'
 import { Link } from 'react-router-dom';
 
+
 const index = () => {
+
+    const { mode, LANG, lang } = useContext(context);
+
+    const t = LANG[lang.toLowerCase()];
     return (
             <section className="page_404">
                 <div className="container">
@@ -14,12 +20,12 @@ const index = () => {
                                 </div>
                                         <div className="contant_box_404">
                                         <h3 className="h2">
-                                        Look like you're lost
+                                        {t.look}
                                         </h3>
                                         
-                                        <p>the page you are looking for not avaible!</p>
+                                        <p>{t.notpage}</p>
                                         
-                                        <Link to="/" className="link_404">Go to Home</Link>
+                                        <Link to="/home" className="link_404">{t.toHome}</Link>
                                     </div>
                             </div>
                         </div>
