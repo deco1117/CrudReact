@@ -36,7 +36,7 @@ const index = ({setMode,setLang}) => {
                         }} name="" id="">
                             <option disabled selected  >Lang</option>
                             <option value="uz">UZ</option>
-                            <option value="eng">ENG</option>
+                            <option value="ru">RU</option>
                         </select>
 
 
@@ -51,7 +51,7 @@ const index = ({setMode,setLang}) => {
                                 
                             }
                         }}/>
-                        <label htmlFor="darkmode-toggle">
+                        <label className='toggle-label' htmlFor="darkmode-toggle">
                             <img src={Sun} className='sun'/>
                             <img src={Moon} className='moon'></img>
                         </label> 

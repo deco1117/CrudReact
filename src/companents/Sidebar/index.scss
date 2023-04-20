@@ -3,7 +3,7 @@
 .sidebar{
     width: 270px;
     background: #F2EAE1;
-    padding: 18px 25px 33px 25px;
+    padding: 18px 5px 33px 5px;
     height: 100%;
     &__top{
         display: flex;
@@ -18,14 +18,11 @@
         margin-top: 27px ;
         display: flex;
         flex-direction: column;
-        width: 141px;
+        width: 180px;
         padding-top: 27px;
         margin: 0 auto;
         text-align: center;
 
-        &--img{
-            border-radius: 50%;
-        }
 
 
         &--role{

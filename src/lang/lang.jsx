@@ -2,18 +2,26 @@
 const LANG =  {
 
     "uz":{
-        role:'Admin',
+        role:'Elekromexanik',
         home:"Bosh sahifa",
-        course:'Kurs',
-        students:'Talabalar',
-        payments:"To'lovlar",
-        report:"Hisobot",
-        settings:'Sozlamalar',
+        base:'Ombor',
+        active:'Faol relelar',
+        repair:"Ta'mirlashda",
+        user:"Foydalanuvchi",
         logout:'Çhiqish',
         search:'Qidirish',
         look: "Adashganga o'xshaysiz",
         notpage:"siz izlayotgan sahifa mavjud emas!",
         toHome: "Bosh sahifaga qayrish",
+        warning:"Joriy oy ta’mir vaqti",
+        addrele:"Rele qo'shish",
+        selectRele:"Rele turini tanlang",
+        typeRele: "Rele turi",
+        manufacturedDate: "Ishlab chiqarilgan sana",
+        term: "Muddati",
+        quotedDate: "Keltirilgan sana",
+        enter: "kiriting",
+
         studentList: "Talabalar ro'yxati",
         addNewStudent: "Yangi talaba qo'shish",
         name: "Ismi",
@@ -21,7 +29,6 @@ const LANG =  {
         phone: "Telefon",
         enrollNumber: "Ro'yhatdan o'tish raqami",
         dataAdmission: "Qabul qilingan sana",
-        users:"Foydalanuvchilar",
         paySchedule: "To'lov jadvali",
         bill: "Hisob raqam",
         paid: "To'langan miqdor",
@@ -39,19 +46,27 @@ const LANG =  {
 
     },
 
-    'eng':{
-        role:'Admin',
-        home:"Home",
-        course:'Course',
-        students:'Students',
-        payments:"Payment",
-        report:"Report",
-        settings:'Settings',
-        logout:'Logout',
-        search:'Search',
-        look: "Look like you're lost",
-        notpage:"the page you are looking for not avaible!!",
-        toHome: "Go to Home",
+    'ru':{
+        role:'Электромеханик',
+        home:"Главны",
+        base:'Cклад',
+        active:'Активные реле',
+        repair:"В ремонте",
+        user:"Пользователь",
+        logout:'Выйти',
+        search:'Поиск',
+        look: "Похоже, ты потерялся",
+        notpage:"страница, которую вы ищете, недоступна!!",
+        toHome: "Иди домой",
+        warning:"В этом месяце время ремонта",
+        addrele:"Добавление реле",
+        selectRele:"Выберите тип реле",
+        typeRele: "Тип реле",
+        manufacturedDate: "Дата производства",
+        term: "Срок",
+        quotedDate: "Дата доставки",
+        enter: "введите",
+
         studentList: "Students List",
         addNewStudent: "Add New Student",
         name: "Name",
@@ -59,7 +74,6 @@ const LANG =  {
         phone: "Phone",
         enrollNumber: "Enroll Number",
         dataAdmission: "Date of Authorization",
-        users:"Users",
         paySchedule: "Payment Schedule",
         bill: "Bill Number",
         paid: "Amount Paid",
@@ -71,9 +85,6 @@ const LANG =  {
     },
 
 
-    'rus':{
-
-    }
 
 
 

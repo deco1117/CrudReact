@@ -5,6 +5,16 @@ import Logo from '../../assets/images/logo.png'
 import LogoDark from '../../assets/images/logo-dark.png'
 import Home from '../../assets/images/home.svg'
 import HomeDark from '../../assets/images/home-dark.svg'
+import Base from '../../assets/images/base.svg'
+import BaseDark from '../../assets/images/base-dark.svg'
+import Repair from '../../assets/images/repair.svg'
+import RepairDark from '../../assets/images/repair-dark.svg'
+import Active from '../../assets/images/active.svg'
+import ActiveDark from '../../assets/images/active-dark.svg'
+import User from '../../assets/images/user.svg'
+import UserDark from '../../assets/images/user-dark.svg'
+import Logout from '../../assets/images/out.svg'
+import LogoutDark from '../../assets/images/out-dark.svg'
 
 
 import './index.scss'
@@ -34,58 +44,52 @@ const index = () => {
             <div>
                 <div className='sidebar' style={sidebarStyle}>
                     <div className="sidebar__top">
-                        <img src={mode === 'off' ? Logo : LogoDark} alt="Logo" />
+                        <img className='ml-[25px]' src={mode === 'off' ? Logo : LogoDark} alt="Logo" />
                     </div>
                     <div className='sidebar__admin'>
                         <img className='sidebar__admin--img' src={Avatar}></img>
-                        <h2 className={' mt-[27px] font-normal text-xl font-medium sidebar__admin--name' + (mode === 'off' ? 'text-[#000000]' : 'text-[#fff]')}>Karthi Madesh</h2>
+                        <h2 className={' font-medium sidebar__admin--name text-[#937846] ' + (mode === 'off' ? 'text-[#000000]' : 'text-[#fff]')}>O'zbekiston temir yo'llari</h2>
+                        <h2 className={' mt-[5px] font-medium sidebar__admin--name text-[#937846] ' + (mode === 'off' ? 'text-[#000000]' : 'text-[#fff]')}>Chuqursoy stansiyasi</h2>
+                        <h2 className={' mt-[10px] font-medium sidebar__admin--name' + (mode === 'off' ? 'text-[#000000]' : 'text-[#fff]')}>Kamol To'ychiyev</h2>
                         <h3 className='sidebar__admin--role'>{t.role}</h3>
                     </div>
                     <div className='flex flex-column items-center gap-[20px] my-[80px] mb-[124px]'>
-                        <NavLink to="/home" className={' grid-cols-2 content-start pl-[40px] pt-[8px] w-[193px] h-[41px] '}>
+                        <NavLink to="/" className={' grid-cols-2 content-start pl-[40px] pt-[8px] w-[193px] h-[41px] '}>
                             <div className=' flex items-center mx-auto gap-[15px]'>
                                 <img className='flex ' src={mode === 'off' ? Home : HomeDark} alt="icon" />
                                 <p className={'  ' + (mode === 'off' ? 'text-[#000000]' : 'text-[#fff]')}  >{t.home}</p>
                             </div>
                         </NavLink>
-                        <NavLink to="/course" className={' grid-cols-2 content-start pl-[40px] pt-[8px] w-[193px] h-[41px] items-center text-white '}>
+                        <NavLink to="/base" className={' grid-cols-2 content-start pl-[40px] pt-[8px] w-[193px] h-[41px] items-center text-white '}>
                             <div className='mx-auto flex  gap-[15px] '>
-                                <img src={mode === 'off' ? Home : HomeDark} alt="icon" />
-                                <p className={'  ' + (mode === 'off' ? 'text-[#000000]' : 'text-[#fff]')}  >{t.course}</p>
+                                <img src={mode === 'off' ? Base : BaseDark} alt="icon" />
+                                <p className={'  ' + (mode === 'off' ? 'text-[#000000]' : 'text-[#fff]')}  >{t.base}</p>
                             </div>
                         </NavLink>
                         <NavLink to="/students" className={' grid-cols-2 content-start pl-[40px] pt-[8px] w-[193px] h-[41px] items-center text-white '}>
                             <div className='mx-auto flex gap-[15px] '>
-                                <img src={mode === 'off' ? Home : HomeDark} alt="icon" />
-                                <p className={'  ' + (mode === 'off' ? 'text-[#000000]' : 'text-[#fff]')}  >{t.students}</p>
+                                <img src={mode === 'off' ? Active : ActiveDark} alt="icon" />
+                                <p className={'  ' + (mode === 'off' ? 'text-[#000000]' : 'text-[#fff]')}  >{t.active}</p>
                             </div>
                         </NavLink>
                         <NavLink to="/pay" className={' grid-cols-2 content-start pl-[40px] pt-[8px] w-[193px] h-[41px] items-center text-white '}>
                             <div className='mx-auto flex gap-[15px] '>
-                                <img src={mode === 'off' ? Home : HomeDark} alt="icon" />
-                                <p className={'  ' + (mode === 'off' ? 'text-[#000000]' : 'text-[#fff]')}  >{t.payments}</p>
+                                <img src={mode === 'off' ? Repair : RepairDark} alt="icon" />
+                                <p className={'  ' + (mode === 'off' ? 'text-[#000000]' : 'text-[#fff]')}  >{t.repair}</p>
                             </div>
                         </NavLink>
                         <NavLink to="/report" className={' grid-cols-2 content-start pl-[40px] pt-[8px] w-[193px] h-[41px] items-center text-white '}>
                             <div className='mx-auto flex gap-[15px]'>
-                                <img src={mode === 'off' ? Home : HomeDark} alt="icon" />
-                                <p className={'  ' + (mode === 'off' ? 'text-[#000000]' : 'text-[#fff]')}  >{t.report}</p>
+                                <img src={mode === 'off' ? User : UserDark} alt="icon" />
+                                <p className={'  ' + (mode === 'off' ? 'text-[#000000]' : 'text-[#fff]')}  >{t.user}</p>
                             </div>
                         </NavLink>
-                        <NavLink to="/setting" className={' grid-cols-2 content-start pl-[40px] pt-[8px] w-[193px] h-[41px] items-center text-white '}>
-                            <div className='mx-auto flex gap-[15px] '>
-                                <img src={mode === 'off' ? Home : HomeDark} alt="icon" />
-                                <p className={'  ' + (mode === 'off' ? 'text-[#000000]' : 'text-[#fff]')}  >{t.settings}</p>
-                            </div>
-                        </NavLink>
-
-
                     </div>
                     <div className='flex flex-column items-center gap-[20px] mb-[80px]'>
                         <NavLink to="/" className={' grid-cols-2 content-start pl-[40px] pt-[8px] w-[193px] h-[41px] items-center text-white '}>
                             <div className='mx-auto flex gap-[15px] fill-current '>
-                                <img src={mode === 'off' ? Home : HomeDark} alt="icon" />
-                                <p className={'  ' + (mode === 'off' ? 'text-[#000000]' : 'text-[#fff]')}  >{t.logout}</p>
+                            <p className={'  ' + (mode === 'off' ? 'text-[#000000]' : 'text-[#fff]')}  >{t.logout}</p>
+                                <img src={mode === 'off' ? Logout : LogoutDark} alt="icon" />
                             </div>
                         </NavLink>
                     </div>
