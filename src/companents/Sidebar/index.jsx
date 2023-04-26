@@ -50,7 +50,7 @@ const index = () => {
                         <img className='sidebar__admin--img' src={Avatar}></img>
                         <h2 className={' font-medium sidebar__admin--name text-[#937846] ' + (mode === 'off' ? 'text-[#000000]' : 'text-[#fff]')}>O'zbekiston temir yo'llari</h2>
                         <h2 className={' mt-[5px] font-medium sidebar__admin--name text-[#937846] ' + (mode === 'off' ? 'text-[#000000]' : 'text-[#fff]')}>Chuqursoy stansiyasi</h2>
-                        <h2 className={' mt-[10px] font-medium sidebar__admin--name' + (mode === 'off' ? 'text-[#000000]' : 'text-[#fff]')}>Kamol To'ychiyev</h2>
+                        <h2 className={' mt-[10px] font-medium sidebar__admin--name' + (mode === 'off' ? 'text-[#000000]' : 'text-[#fff]')}>Davronbek Matvaliyev</h2>
                         <h3 className='sidebar__admin--role'>{t.role}</h3>
                     </div>
                     <div className='flex flex-column items-center gap-[20px] my-[80px] mb-[124px]'>
@@ -66,7 +66,7 @@ const index = () => {
                                 <p className={'  ' + (mode === 'off' ? 'text-[#000000]' : 'text-[#fff]')}  >{t.base}</p>
                             </div>
                         </NavLink>
-                        <NavLink to="/students" className={' grid-cols-2 content-start pl-[40px] pt-[8px] w-[193px] h-[41px] items-center text-white '}>
+                        <NavLink to="/active" className={' grid-cols-2 content-start pl-[40px] pt-[8px] w-[193px] h-[41px] items-center text-white '}>
                             <div className='mx-auto flex gap-[15px] '>
                                 <img src={mode === 'off' ? Active : ActiveDark} alt="icon" />
                                 <p className={'  ' + (mode === 'off' ? 'text-[#000000]' : 'text-[#fff]')}  >{t.active}</p>
@@ -78,7 +78,7 @@ const index = () => {
                                 <p className={'  ' + (mode === 'off' ? 'text-[#000000]' : 'text-[#fff]')}  >{t.repair}</p>
                             </div>
                         </NavLink>
-                        <NavLink to="/report" className={' grid-cols-2 content-start pl-[40px] pt-[8px] w-[193px] h-[41px] items-center text-white '}>
+                        <NavLink to="/user" className={' grid-cols-2 content-start pl-[40px] pt-[8px] w-[193px] h-[41px] items-center text-white '}>
                             <div className='mx-auto flex gap-[15px]'>
                                 <img src={mode === 'off' ? User : UserDark} alt="icon" />
                                 <p className={'  ' + (mode === 'off' ? 'text-[#000000]' : 'text-[#fff]')}  >{t.user}</p>

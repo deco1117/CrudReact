@@ -2,7 +2,7 @@ import React, { useState, useContext } from 'react';
 import { context } from '../../context/context';
 import { Link } from 'react-router-dom';
 import Scrool from '../../assets/images/scrool.svg'
-import TableBase from '../../Tables/TableBase'
+import TableActive from '../../Tables/TableActive'
 
 const index = ({setMode,setLang}) => {
 
@@ -23,14 +23,14 @@ const index = ({setMode,setLang}) => {
     return (
         <div>
             <div className='bg-[#F8F8F8] px-[30px] h-[100vh]'>
-                <div className='flex items-center justify-between border-b-2 py-3'>
+                <div className='flex items-center justify-between border-b-2 py-3 '>
                     <h1 className='text-xl font-medium'>
-                        {t.base}
+                        {t.active}
                     </h1>
                     <div className='flex gap-[30px]'>
-                        <img className='studentlist__header--end-scrool' src={Scrool} />
-                        <Link to='/addList' className='btn bg-[#FEAF00;] studentlist__header--end-button'>
-                            {t.addrele}
+                        <img className='' src={Scrool} />
+                        <Link to='/addActive' className='btn bg-[#FEAF00;] '>
+                            {t.actived}
                         </Link>
                     </div>     
                 </div>
@@ -41,7 +41,7 @@ const index = ({setMode,setLang}) => {
                         <option></option>
                     </select>
                 </form>
-                <TableBase/>
+                <TableActive/>
             </div>
         </div>
     );

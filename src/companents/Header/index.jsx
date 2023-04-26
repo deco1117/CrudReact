@@ -54,8 +54,7 @@ const index = ({setMode,setLang}) => {
                         <label className='toggle-label' htmlFor="darkmode-toggle">
                             <img src={Sun} className='sun'/>
                             <img src={Moon} className='moon'></img>
-                        </label> 
-                        <div className="background"></div>
+                        </label>              
                     </div>
                 </div>
 

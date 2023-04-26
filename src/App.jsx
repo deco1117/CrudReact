@@ -1,8 +1,8 @@
 import React, {useState} from 'react';
 import Home from './pages/Home'
 import Base from './pages/Base'
-import Students from './pages/Students'
-import Pay from './pages/Pay'
+import Active from './pages/Active'
+import Repair from './pages/Repair'
 import Login from './pages/Login'
 import Header from './companents/Header'
 import Sidebar from './companents/Sidebar'
@@ -11,6 +11,8 @@ import {BrowserRouter, Route, Routes} from 'react-router-dom'
 import { context } from './context/context';
 import LANG from './lang/lang';
 import AddList from './pages/Base/AddList';
+import AddAcrive from './pages/Active/AddActive';
+import User from './pages/User';
 
 function App (props) {
 
@@ -22,6 +24,7 @@ function App (props) {
     <div>
  
           <context.Provider value = {{lang, mode, LANG}}>
+          
           <div className='app container'>
             <Sidebar/>
               <div>
@@ -32,8 +35,10 @@ function App (props) {
                     
                         <Route path='/addList' element={<AddList/>}/>
               
-                    <Route path='/students' element={<Students/>}/>
-                    <Route path='/pay' element={<Pay/>}/>
+                    <Route path='/active' element={<Active/>}/>
+                        <Route path='/addActive' element={<AddAcrive/>}/>
+                    <Route path='/pay' element={<Repair/>}/>
+                    <Route path='/user' element={<User/>}/>
                     <Route path='*' element={<Error/>}/>
                 </Routes>
               </div>
