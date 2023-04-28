@@ -35,6 +35,7 @@ const LANG =  {
         phone: "telefon raqam",
         password: "Parol",
         edit: "Tahrirlash",
+        required:"Maydonni to'ldiring!",
 
         studentList: "Talabalar ro'yxati",
         addNewStudent: "Yangi talaba qo'shish",
@@ -91,6 +92,7 @@ const LANG =  {
         phone: "Номер телефона",
         password: "Пароль",
         edit: "Редактирование",
+        required:"Заполните поле!",
 
         studentList: "Students List",
         addNewStudent: "Add New Student",
