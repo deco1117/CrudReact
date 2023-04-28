@@ -13,6 +13,7 @@ import LANG from './lang/lang';
 import AddList from './pages/Base/AddList';
 import AddAcrive from './pages/Active/AddActive';
 import User from './pages/User';
+import Registr from './pages/Login/Registr';
 
 function App (props) {
 
@@ -24,8 +25,9 @@ function App (props) {
     <div>
  
           <context.Provider value = {{lang, mode, LANG}}>
-          
-          <div className='app container'>
+          <Registr/>    
+          {/* <Login/> */}
+          {/* <div className='app container'>
             <Sidebar/>
               <div>
                 <Header setLang = {setLang} setMode = {setMode}/>
@@ -42,7 +44,7 @@ function App (props) {
                     <Route path='*' element={<Error/>}/>
                 </Routes>
               </div>
-          </div>
+          </div> */}
           </context.Provider>
           
 
