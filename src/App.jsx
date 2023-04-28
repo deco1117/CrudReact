@@ -14,6 +14,7 @@ import AddList from './pages/Base/AddList';
 import AddAcrive from './pages/Active/AddActive';
 import User from './pages/User';
 import Registr from './pages/Login/Registr';
+import EditUser from './pages/User/EditUser';
 
 function App (props) {
 
@@ -25,26 +26,25 @@ function App (props) {
     <div>
  
           <context.Provider value = {{lang, mode, LANG}}>
-          <Registr/>    
+          {/* <Registr/>     */}
           {/* <Login/> */}
-          {/* <div className='app container'>
+          <div className='app container'>
             <Sidebar/>
               <div>
                 <Header setLang = {setLang} setMode = {setMode}/>
                 <Routes>
                     <Route path='/' element={<Home/>}/>
                     <Route path='/base' element={<Base/>}/>
-                    
                         <Route path='/addList' element={<AddList/>}/>
-              
                     <Route path='/active' element={<Active/>}/>
                         <Route path='/addActive' element={<AddAcrive/>}/>
                     <Route path='/pay' element={<Repair/>}/>
                     <Route path='/user' element={<User/>}/>
+                        <Route path='/editUser' element={<EditUser/>}/>
                     <Route path='*' element={<Error/>}/>
                 </Routes>
               </div>
-          </div> */}
+          </div>
           </context.Provider>
           
 

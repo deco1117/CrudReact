@@ -32,10 +32,12 @@ const LANG =  {
         name: "Ism",
         sname: "Familiya",
         patronymic: "Sharif",
-        phone: "telefon raqam",
+        phone: "Telefon raqam",
         password: "Parol",
         edit: "Tahrirlash",
         required:"Maydonni to'ldiring!",
+        station: "Stansiya",
+        position: "Elekromexanik",
 
         studentList: "Talabalar ro'yxati",
         addNewStudent: "Yangi talaba qo'shish",
@@ -93,6 +95,8 @@ const LANG =  {
         password: "Пароль",
         edit: "Редактирование",
         required:"Заполните поле!",
+        station: "Станция",
+        position: "Позиция",
 
         studentList: "Students List",
         addNewStudent: "Add New Student",

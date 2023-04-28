@@ -43,6 +43,14 @@ const index = ({ setMode, setLang }) => {
                         <h4>Abdulhoshim o'g'li</h4>
                     </div>
                     <div className='flex w-[530px] justify-between'>
+                        <h4 className='text-[#FEAF00]'>{t.station}</h4>
+                        <h4>Chuqursoy</h4>
+                    </div>
+                    <div className='flex w-[530px] justify-between'>
+                        <h4 className='text-[#FEAF00]'>{t.position}</h4>
+                        <h4>Elektromexanik</h4>
+                    </div>
+                    <div className='flex w-[530px] justify-between'>
                         <h4 className='text-[#FEAF00]'>{t.phone}</h4>
                         <h4>+998903591117</h4>
                     </div>
@@ -50,7 +58,7 @@ const index = ({ setMode, setLang }) => {
                         <h4 className='text-[#FEAF00]'>{t.password}</h4>
                         <h4>*******</h4>
                     </div>
-                    <Link to='/addList' className='btn bg-[#FEAF00;] studentlist__header--end-button'>
+                    <Link to='/editUser' className='btn bg-[#FEAF00;] studentlist__header--end-button'>
                             {t.edit}
                     </Link>
                 </div>
