@@ -1,8 +1,31 @@
-import React, { useState, useContext } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import { context } from '../../context/context';
 import { Link } from 'react-router-dom';
+import API from "../../api/API";
 
 const index = ({ setMode, setLang }) => {
+
+    const [data, setData] = useState([]);
+    
+    useEffect(() => {
+        API.getActive().then((res) => {
+            if (res.status == 200) {
+                setData(res.data.data);
+            }
+        });
+    }, []);
+
+    function changeActive(id) {
+        API.editRepair(id).then((res) => {
+            if (res.status == 200) {
+                API.getActive().then((res) => {
+                    if (res.status == 200) {
+                        setData(res.data.data);
+                    }
+                });
+            }
+        });
+    }
 
 
     const { mode, LANG, lang } = useContext(context);
@@ -34,51 +57,23 @@ const index = ({ setMode, setLang }) => {
                         </tr>
                     </thead>
                     <tbody>
-                        <tr className='items-center'>
-                            <th scope="row" className='table-body'>НМШ-0,3/90</th>
-                            <td className='table-body'>00159</td>
-                            <td className='table-body'>61-62</td>
-                            <td className='table-body'>01.01.2022</td>
-                            <td className='table-body'>01.01.2024</td>
-                            <td className='table-body'>Davronbek Matvaliyev</td>
-                            <td className='table-body'><Link to='/addList' className='btn bg-[#FEAF00;] studentlist__header--end-button'>
-                                {t.repairr}
-                            </Link></td>
-                        </tr>
-                        <tr className='items-center'>
-                            <th scope="row" className='table-body'>НМШ-0,3/90</th>
-                            <td className='table-body'>00159</td>
-                            <td className='table-body'>61-62</td>
-                            <td className='table-body'>01.01.2022</td>
-                            <td className='table-body'>01.01.2024</td>
-                            <td className='table-body'>Davronbek Matvaliyev</td>
-                            <td className='table-body'><Link to='/addList' className='btn bg-[#FEAF00;] studentlist__header--end-button'>
-                                {t.repairr}
-                            </Link></td>
-                        </tr>
-                        <tr className='items-center'>
-                            <th scope="row" className='table-body'>НМШ-0,3/90</th>
-                            <td className='table-body'>00159</td>
-                            <td className='table-body'>61-62</td>
-                            <td className='table-body'>01.01.2022</td>
-                            <td className='table-body'>01.01.2024</td>
-                            <td className='table-body'>Davronbek Matvaliyev</td>
-                            <td className='table-body'><Link to='/addList' className='btn bg-[#FEAF00;] studentlist__header--end-button'>
-                                {t.repairr}
-                            </Link></td>
-                        </tr>
-                        <tr className='items-center'>
-                            <th scope="row" className='table-body'>НМШ-0,3/90</th>
-                            <td className='table-body'>00159</td>
-                            <td className='table-body'>61-62</td>
-                            <td className='table-body'>01.01.2022</td>
-                            <td className='table-body'>01.01.2024</td>
-                            <td className='table-body'>Davronbek Matvaliyev</td>
-                            <td className='table-body'><Link to='/addList' className='btn bg-[#FEAF00;] studentlist__header--end-button'>
-                                {t.repairr}
-                            </Link></td>
-                        </tr>
-
+                    {
+                            data.map((item)=> {
+                            return  <tr key={item.id} className='items-center'>
+                                        <th scope="row" className='table-body'>{item.name}</th>
+                                        <td className='table-body'>{item.number}</td>
+                                        <td className='table-body'>{item.address}</td>
+                                        <td className='table-body'></td>
+                                        <td className='table-body'>{item.duration}</td>
+                                        <td className='table-body'></td>
+                                        <td className='table-body'>
+                                            <button onClick={() => changeActive(item.id)} className='btn bg-[#FEAF00;] studentlist__header--end-button'>
+                                                {t.repairr}
+                                            </button>
+                                        </td>
+                                    </tr>
+                            })
+                        }
                     </tbody>
                 </table>
             </div>

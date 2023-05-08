@@ -15,19 +15,22 @@ import AddAcrive from './pages/Active/AddActive';
 import User from './pages/User';
 import Registr from './pages/Login/Registr';
 import EditUser from './pages/User/EditUser';
+import Users from './pages/Users'
+
 
 function App (props) {
 
   const [lang, setLang] = useState(localStorage.getItem('languages') || 'uz');
   const [mode, setMode] = useState('off' || localStorage.getItem('theme', 'off'));
-
+  const isLoggedIn =  localStorage.getItem('isLoggedIn') == 'true';
 
   return (
     <div>
  
-          <context.Provider value = {{lang, mode, LANG}}>
+          <context.Provider value = {{lang, mode, LANG, isLoggedIn}}>
           {/* <Registr/>     */}
-          {/* <Login/> */}
+         
+          {/* { isLoggedIn ? ( */}
           <div className='app container'>
             <Sidebar/>
               <div>
@@ -40,11 +43,13 @@ function App (props) {
                         <Route path='/addActive' element={<AddAcrive/>}/>
                     <Route path='/pay' element={<Repair/>}/>
                     <Route path='/user' element={<User/>}/>
+                    <Route path='/users' element={<Users/>}/>
                         <Route path='/editUser' element={<EditUser/>}/>
                     <Route path='*' element={<Error/>}/>
                 </Routes>
               </div>
           </div>
+          {/* ) :  <Login/> } */}
           </context.Provider>
           
 

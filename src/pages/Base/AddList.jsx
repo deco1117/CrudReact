@@ -3,12 +3,14 @@ import { context } from '../../context/context';
 import { Link } from 'react-router-dom';
 import TableBase from '../../Tables/TableBase'
 import { Formik } from 'formik';
-import * as Yup from "yup"
+import * as Yup from "yup";
+import API from "../../api/API";
 
 const AddList = () => {
 
     const {mode, LANG, lang } = useContext(context);
 
+    const [data, setData] = useState([]);
 
     const t = LANG[lang.toLowerCase()];
 
@@ -28,18 +30,24 @@ const AddList = () => {
                     
                     <Formik initialValues={{
                         name:"",
-                        id: "",
-                        date: "",
-                        month: "",
-
+                        number: "",
+                        createdDate: "",
+                        duration: "",
                     }}
                     validationSchema={Yup.object({
                         name: Yup.string().min(3, "Uchtadan ko'p belgi kiritish zarur!").required("Maydonni to'ldiring!"),
-                        id: Yup.string().min(3, "Uchtadan ko'p belgi kiritish zarur!").required("Maydonni to'ldiring!"),
-                        date: Yup.date().required("Maydonni to'ldiring!"),
-                        month: Yup.string().required("Maydonni to'ldiring!").max(2, "Faqat ikki xonali son kiritish mumkin!"),
+                        number: Yup.string().min(3, "Uchtadan ko'p belgi kiritish zarur!").required("Maydonni to'ldiring!"),
+                        createdDate: Yup.date().required("Maydonni to'ldiring!"),
+                        duration: Yup.string().required("Maydonni to'ldiring!").max(2, "Faqat ikki xonali son kiritish mumkin!"),
                     })}
                     onSubmit={(values)=>{
+                        API.create(values).then(res => {
+                            API.getStore().then((res) => {
+                                if (res.status == 200) {
+                                    setData(res.data.data);
+                                }
+                            });
+                        });
                     }}
                     >
                         {({values, errors, handleSubmit, handleChange, touched})=>{
@@ -51,27 +59,24 @@ const AddList = () => {
                                     {errors.name && touched.name && <p className=' text-red-600 text-xs'>{errors.name}</p>} 
 
                                     <label className='mt-2'>ID</label>
-                                    <input className='form-control' type='text' name='id' placeholder='ID' onChange={handleChange} value={values.id }/>
-                                    {errors.id && touched.id && <p className=' text-red-600 text-xs'>{errors.id}</p>}
+                                    <input className='form-control' type='text' name='number' placeholder='ID' onChange={handleChange} value={values.number }/>
+                                    {errors.number && touched.number && <p className=' text-red-600 text-xs'>{errors.number}</p>}
 
                                     <label className='mt-2'>{t.manufacturedDate}</label>
-                                    <input className='form-control' type='date' name='date' onChange={handleChange} value={values.date }/>
-                                    {errors.date && touched.date && <p className=' text-red-600 text-xs'>{errors.date}</p>}
+                                    <input className='form-control' type='date' name='createdDate' onChange={handleChange} value={values.createdDate }/>
+                                    {errors.createdDate && touched.createdDate && <p className=' text-red-600 text-xs'>{errors.createdDate}</p>}
 
                                     <label className='mt-2'>{t.term}</label>
-                                    <input className='form-control' type='number' name='month' placeholder='oy' onChange={handleChange} value={values.month }/>
-                                    {errors.month && touched.month && <p className=' text-red-600 text-xs'>{errors.month}</p>}
+                                    <input className='form-control' type='number' name='duration' placeholder='oy' onChange={handleChange} value={values.duration }/>
+                                    {errors.duration && touched.duration && <p className=' text-red-600 text-xs'>{errors.duration}</p>}
                                 
                                     <button type='submit'  className='mt-4 btn w-100 btn-primary bg-[#FEAF00] '>{t.addrele}</button>
-                                    
-                                
                             </form>
                             )
                         }}
-
                     </Formik>
                 </div>
-                <TableBase/>
+                <TableBase abc={data}/>
             </div>
         </>
     );
