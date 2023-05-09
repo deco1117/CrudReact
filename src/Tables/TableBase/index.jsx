@@ -1,14 +1,13 @@
 import React, { useState, useEffect, useContext } from "react";
 import { context } from "../../context/context";
 import { Link } from "react-router-dom";
-import Scrool from "../../assets/images/scrool.svg";
 import Edit from "../../assets/images/edit.svg";
 import Del from "../../assets/images/del.svg";
 import API from "../../api/API";
 
-const index = ({ setMode, setLang, abc }) => {
+const index = ({ setMode, setLang }) => {
 
-    const [data, setData] = useState([...abc]);
+    const [data, setData] = useState([]);
     
     useEffect(() => {
         API.getStore().then((res) => {
@@ -66,13 +65,13 @@ const index = ({ setMode, setLang, abc }) => {
                                             <td className="table-body">{item.duration}</td>
                                             <td className="table-body">16.05.2021</td>
                                             <td className="table-body">
-                                                {""}
+                                                
                                                 <button className="btn btn-outline-warning p-2 border-[1px]">
-                                                    {" "}
+                                                    
                                                     <img src={Edit} />
-                                                </button>{" "}
+                                                </button>
                                                 <button className="btn btn-outline-danger p-2 ml-2 border-[1px]">
-                                                    {" "}
+                                                    
                                                     <img src={Del} />
                                                 </button>
                                             </td>

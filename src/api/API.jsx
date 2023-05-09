@@ -14,7 +14,7 @@ const API = {
         return axios.get('/reles/repair');
     },
     editActivation(id, address) {
-        return axios.put('/reles/activation?id=' + id, address);
+        return axios.put('/reles/activation?id=' + id, {address});
     },
     editRepair(id) {
         return axios.put('/reles/Repair?id=' + id);

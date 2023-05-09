@@ -34,7 +34,7 @@ const Registr = () => {
                                 fname: Yup.string().required("Maydonni to'ldiring!"),
                                 sname: Yup.string().required("Maydonni to'ldiring!"),
                                 fatherName: Yup.string().required("Maydonni to'ldiring!"),
-                                station: Yup.string().required("Maydonni to'ldiring!"),
+                                station: Yup.string().required("Stansiyani tanlang!"),
                                 position: Yup.string().required("Maydonni to'ldiring!"),
                                 phoneNumber: Yup.number().required("Maydonni to'ldiring!").typeError("Iltimos telefon raqamini kiriting").positive('Telefon raqami minus ishorasi bilan boshlanmaydi').min(9),
                                 password: Yup.string().min(6, "Parol kamida oltita belgidan iborat bo'lishi kerak").required("Maydonni to'ldiring!").matches(/[a-zA-Z]/, 'Parol faqat lotin harflaridan iborat bolishi kerak'),
@@ -66,8 +66,11 @@ const Registr = () => {
                                                 {errors.fatherName && touched.fatherName && <p className=' text-red-600 text-xs'>{errors.fatherName}</p>}
                                             </div>
                                             <div>
-                                                <label className='text-[14px] font-medium text-[#6C6C6C]'>Stansiyani kiriting</label>
-                                                <input className='form-control w-[455px] border-[#FEAF00]' type='text' placeholder='Stansiya' name='station' onChange={handleChange} value={values.station}/>
+                                                <label className='text-[14px] font-medium text-[#6C6C6C]'>Stansiyani tanlang</label>
+                                                <select  className='form-control w-[455px] border-[#FEAF00]' name="station" id="" onChange={handleChange} value={values.station}>
+                                                    <option selected disabled value="">Stansiyani tanlang</option>
+                                                    <option  value="Chuqursoy">Chuqursoy</option>
+                                                </select>
                                                 {errors.station && touched.station && <p className=' text-red-600 text-xs'>{errors.station}</p>}
                                             </div> 
                                         </div>
@@ -95,7 +98,7 @@ const Registr = () => {
                                                 {errors.repassword && touched.repassword && <p className=' text-red-600 text-xs'>{errors.repassword}</p>}
                                             </div> 
                                         </div>
-                                        <button to='/home' type='submit' className='btn w-100 bg-[#FEAF00] mt-[30px]'>KIRISH</button>
+                                        <Link to='/login' type='submit' className='btn w-100 bg-[#FEAF00] mt-[30px]'>Tasdiqlash uchun yuborish</Link>
                                 </form> 
                                 )          
                                 }}

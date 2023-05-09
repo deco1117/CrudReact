@@ -18,18 +18,10 @@ import LogoutDark from '../../assets/images/out-dark.svg'
 import Users from '../../assets/images/users.svg'
 import UsersDark from '../../assets/images/users-dark.svg'
 
-
 import './index.scss'
-import { Link, NavLink } from 'react-router-dom';
-
-
-
-
-
-
+import { Link, NavLink, useNavigate } from 'react-router-dom';
 
 const index = () => {
-
         
     const { mode, LANG, lang } = useContext(context);
 
@@ -42,6 +34,15 @@ const index = () => {
     }
 
     let admin = true;
+
+
+    const logout = () => {
+        console.log('logout');
+            window.localStorage.clear();
+            let nav = useNavigate();
+            nav('/login');
+    };
+
 
     return (
         <>
@@ -123,7 +124,7 @@ const index = () => {
                         <h3 className='sidebar__admin--role'>{t.role}</h3>
                     </div>
                     <div className='flex flex-column items-center gap-[20px] my-[80px] mb-[124px]'>
-                        <NavLink to="/" className={' grid-cols-2 content-start pl-[40px] pt-[8px] w-[193px] h-[41px] '}>
+                        <NavLink to="/home" className={' grid-cols-2 content-start pl-[40px] pt-[8px] w-[193px] h-[41px] '}>
                             <div className=' flex items-center mx-auto gap-[15px]'>
                                 <img className='flex ' src={mode === 'off' ? Home : HomeDark} alt="icon" />
                                 <p className={'  ' + (mode === 'off' ? 'text-[#000000]' : 'text-[#fff]')}  >{t.home}</p>
@@ -155,12 +156,12 @@ const index = () => {
                         </NavLink>
                     </div>
                     <div className='flex flex-column items-center gap-[20px] mb-[80px]'>
-                        <NavLink to="/" className={' grid-cols-2 content-start pl-[40px] pt-[8px] w-[193px] h-[41px] items-center text-white '}>
-                            <div className='mx-auto flex gap-[15px] fill-current '>
+                        <button  className=' grid-cols-2 content-start pl-[40px] pt-[8px] w-[193px] h-[41px] items-center text-white '>
+                            <div onClick={()=> logout() } className='mx-auto flex gap-[15px] fill-current '>
                             <p className={'  ' + (mode === 'off' ? 'text-[#000000]' : 'text-[#fff]')}  >{t.logout}</p>
                                 <img src={mode === 'off' ? Logout : LogoutDark} alt="icon" />
                             </div>
-                        </NavLink>
+                        </button>
                     </div>
                 </div>
             </div>

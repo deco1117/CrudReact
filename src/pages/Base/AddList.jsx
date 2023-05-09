@@ -51,7 +51,7 @@ const AddList = () => {
                     }}
                     >
                         {({values, errors, handleSubmit, handleChange, touched})=>{
-                            console.log(errors)
+                            
                             return( <form className='' onSubmit={handleSubmit}>  
 
                                     <label className=''>{t.typeRele}</label>
@@ -76,7 +76,7 @@ const AddList = () => {
                         }}
                     </Formik>
                 </div>
-                <TableBase abc={data}/>
+                <TableBase/>
             </div>
         </>
     );

@@ -34,7 +34,6 @@ const index = ({setMode,setLang}) => {
                             setLang(e.target.value)
                             localStorage.setItem('language', e.target.value)
                         }} name="" id="">
-                            <option disabled selected  >Lang</option>
                             <option value="uz">UZ</option>
                             <option value="ru">RU</option>
                         </select>
