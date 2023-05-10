@@ -9,7 +9,7 @@ const LANG =  {
         repair:"Ta'mirlashda",
         user:"Foydalanuvchi",
         users:"Foydalanuvchilar",
-        logout:'Çhiqish',
+        logout:'Chiqish',
         search:'Qidirish',
         look: "Adashganga o'xshaysiz",
         notpage:"siz izlayotgan sahifa mavjud emas!",

@@ -18,10 +18,10 @@ import EditUser from "./pages/User/EditUser";
 import Users from "./pages/Users";
 
 function App(props) {
+
   const [lang, setLang] = useState(localStorage.getItem("languages") || "uz");
-  const [mode, setMode] = useState(
-    "off" || localStorage.getItem("theme", "off")
-  );
+  const [mode, setMode] = useState("off" || localStorage.getItem("theme", "off"));
+
   const isLoggedIn =
     localStorage.getItem("token") && localStorage.getItem("token") != "" && localStorage.getItem("token") != null&& localStorage.getItem("token") != 'undefined';
 
@@ -34,8 +34,8 @@ function App(props) {
             <div>
               <Header setLang={setLang} setMode={setMode} />
               <Routes>
-                <Route path="/" element={<Home />} />
-                <Route path="/home" element={<Home />} />
+                <Route path="/" element={<Home/>} />
+                <Route path="/home" element={<Home/>} />
                 <Route path="/base" element={<Base />} />
                 <Route path="/addList" element={<AddList />} />
                 <Route path="/active" element={<Active />} />

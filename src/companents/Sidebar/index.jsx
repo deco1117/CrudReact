@@ -40,7 +40,7 @@ const index = () => {
         console.log('logout');
             window.localStorage.clear();
             let nav = useNavigate();
-            nav('/login');
+            nav('/');
     };
 
 
@@ -99,7 +99,7 @@ const index = () => {
                         </NavLink>
                     </div>
                     <div className='flex flex-column items-center gap-[20px] mb-[80px]'>
-                        <NavLink to="/" className={' grid-cols-2 content-start pl-[40px] pt-[8px] w-[193px] h-[41px] items-center text-white '}>
+                        <NavLink onClick={()=> logout() }  className={' grid-cols-2 content-start pl-[40px] pt-[8px] w-[193px] h-[41px] items-center text-white '}>
                             <div className='mx-auto flex gap-[15px] fill-current '>
                             <p className={'  ' + (mode === 'off' ? 'text-[#000000]' : 'text-[#fff]')}  >{t.logout}</p>
                                 <img src={mode === 'off' ? Logout : LogoutDark} alt="icon" />
@@ -156,8 +156,8 @@ const index = () => {
                         </NavLink>
                     </div>
                     <div className='flex flex-column items-center gap-[20px] mb-[80px]'>
-                        <button  className=' grid-cols-2 content-start pl-[40px] pt-[8px] w-[193px] h-[41px] items-center text-white '>
-                            <div onClick={()=> logout() } className='mx-auto flex gap-[15px] fill-current '>
+                        <button onClick={()=> logout() } className=' grid-cols-2 content-start pl-[40px] pt-[8px] w-[193px] h-[41px] items-center text-white '>
+                            <div  className='mx-auto flex gap-[15px] fill-current '>
                             <p className={'  ' + (mode === 'off' ? 'text-[#000000]' : 'text-[#fff]')}  >{t.logout}</p>
                                 <img src={mode === 'off' ? Logout : LogoutDark} alt="icon" />
                             </div>

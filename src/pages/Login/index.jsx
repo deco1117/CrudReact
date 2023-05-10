@@ -6,21 +6,19 @@ import * as Yup from "yup";
 import LOGIN from "../../servise/auth";
 
 const index = () => {
-    let navigate = useNavigate();
+    let redirect = useNavigate();
   const userLogin = (userData) => {
     if (
-      ("" + userData.phoneNumber).length == 0 ||
-      ("" + userData.password).length === 0
-    ) {
+      ("" + userData.phoneNumber).length == 0 ||("" + userData.password).length === 0) {
       alert("Iltimos ma'lumotlaringizni kiriting");
     } else {
       LOGIN.auth(userData).then((res) => {
-        console.log(res);
         if (res.status == 200) {
           if (res.data.statusCode == 200) {
             //code
             localStorage.setItem('token', res.data.data.accessToken);
-            navigate('/');
+            redirect("/");
+            refreshPage();
           } else {
             alert(res.data.message);
           }
@@ -32,8 +30,13 @@ const index = () => {
     }
   };
 
+  function refreshPage() {
+    window.location.reload(false);
+  }
+
+
   return (
-    <div>
+    <>
       <div className=" bg-[#FEAF00] h-[100vh]">
         <div className="container">
           <div className="pt-[175px] ">
@@ -112,8 +115,7 @@ const index = () => {
                         </p>
                       )}
                       <button
-                        onClick={() => userLogin()}
-                        to="/home"
+                        // onClick={refreshPage}
                         type="submit"
                         className="btn w-100 bg-[#FEAF00] mt-[30px]"
                       >
@@ -148,7 +150,7 @@ const index = () => {
           </div>
         </div>
       </div>
-    </div>
+    </>
   );
 };
 
