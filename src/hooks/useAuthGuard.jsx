@@ -7,7 +7,7 @@ export const useGuard = ()=>{
     if(!token){
         localStorage.clear();
 
-        return false;
+        return false
     }
-    return true;
+    return true
 }

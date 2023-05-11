@@ -40,7 +40,7 @@ const index = () => {
         console.log('logout');
             window.localStorage.clear();
             let nav = useNavigate();
-            nav('/');
+            nav('/login');
     };
 
 
@@ -60,38 +60,38 @@ const index = () => {
                         <h2 className={' mt-[10px] font-medium sidebar__admin--name' + (mode === 'off' ? 'text-[#000000]' : 'text-[#fff]')}>Davronbek Matvaliyev</h2>
                         <h3 className='sidebar__admin--role'>{t.role}</h3>
                     </div>
-                    <div className='flex flex-column items-center gap-[20px] my-[80px] mb-[124px]'>
-                        <NavLink to="/" className={' grid-cols-2 content-start pl-[30px] pt-[8px] w-[193px] h-[41px] '}>
+                    <div className=' flex flex-column items-center gap-[20px] my-[80px] mb-[124px]'>
+                        <NavLink to="/" className={' hover:bg-[#FEAF00] hover:rounded-[4px] grid-cols-2 content-start pl-[30px] pt-[8px] w-[193px] h-[41px] '}>
                             <div className=' flex items-center mx-auto gap-[15px]'>
                                 <img className='flex ' src={mode === 'off' ? Home : HomeDark} alt="icon" />
                                 <p className={'  ' + (mode === 'off' ? 'text-[#000000]' : 'text-[#fff]')}  >{t.home}</p>
                             </div>
                         </NavLink>
-                        <NavLink to="/base" className={' grid-cols-2 content-start pl-[30px] pt-[8px] w-[193px] h-[41px] items-center text-white '}>
+                        <NavLink to="/base" className={' hover:bg-[#FEAF00] hover:rounded-[4px] grid-cols-2 content-start pl-[30px] pt-[8px] w-[193px] h-[41px] items-center text-white '}>
                             <div className='mx-auto flex  gap-[15px] '>
                                 <img src={mode === 'off' ? Base : BaseDark} alt="icon" />
                                 <p className={'  ' + (mode === 'off' ? 'text-[#000000]' : 'text-[#fff]')}  >{t.base}</p>
                             </div>
                         </NavLink>
-                        <NavLink to="/active" className={' grid-cols-2 content-start pl-[30px] pt-[8px] w-[193px] h-[41px] items-center text-white '}>
+                        <NavLink to="/active" className={' hover:bg-[#FEAF00] hover:rounded-[4px] grid-cols-2 content-start pl-[30px] pt-[8px] w-[193px] h-[41px] items-center text-white '}>
                             <div className='mx-auto flex gap-[15px] '>
                                 <img src={mode === 'off' ? Active : ActiveDark} alt="icon" />
                                 <p className={'  ' + (mode === 'off' ? 'text-[#000000]' : 'text-[#fff]')}  >{t.active}</p>
                             </div>
                         </NavLink>
-                        <NavLink to="/pay" className={' grid-cols-2 content-start pl-[30px] pt-[8px] w-[193px] h-[41px] items-center text-white '}>
+                        <NavLink to="/pay" className={' hover:bg-[#FEAF00] hover:rounded-[4px] grid-cols-2 content-start pl-[30px] pt-[8px] w-[193px] h-[41px] items-center text-white '}>
                             <div className='mx-auto flex gap-[15px] '>
                                 <img src={mode === 'off' ? Repair : RepairDark} alt="icon" />
                                 <p className={'  ' + (mode === 'off' ? 'text-[#000000]' : 'text-[#fff]')}  >{t.repair}</p>
                             </div>
                         </NavLink>
-                        <NavLink to="/user" className={' grid-cols-2 content-start pl-[30px] pt-[8px] w-[193px] h-[41px] items-center text-white '}>
+                        <NavLink to="/user" className={' hover:bg-[#FEAF00] hover:rounded-[4px] grid-cols-2 content-start pl-[30px] pt-[8px] w-[193px] h-[41px] items-center text-white '}>
                             <div className='mx-auto flex gap-[15px]'>
                                 <img src={mode === 'off' ? User : UserDark} alt="icon" />
                                 <p className={'  ' + (mode === 'off' ? 'text-[#000000]' : 'text-[#fff]')}  >{t.user}</p>
                             </div>
                         </NavLink>
-                        <NavLink to="/users" className={' grid-cols-2 content-start pl-[30px] pt-[8px] w-[193px] h-[41px] items-center text-white '}>
+                        <NavLink to="/users" className={' hover:bg-[#FEAF00] hover:rounded-[4px] grid-cols-2 content-start pl-[30px] pt-[8px] w-[193px] h-[41px] items-center text-white '}>
                             <div className='mx-auto flex gap-[15px]'>
                                 <img src={mode === 'off' ? Users : UsersDark} alt="icon" />
                                 <p className={'  ' + (mode === 'off' ? 'text-[#000000]' : 'text-[#fff]')}  >{t.users}</p>
@@ -99,7 +99,7 @@ const index = () => {
                         </NavLink>
                     </div>
                     <div className='flex flex-column items-center gap-[20px] mb-[80px]'>
-                        <NavLink onClick={()=> logout() }  className={' grid-cols-2 content-start pl-[40px] pt-[8px] w-[193px] h-[41px] items-center text-white '}>
+                        <NavLink onClick={()=> logout() } to="/login"  className='hover:bg-[#FEAF00] hover:rounded-[4px] grid-cols-2 content-start pl-[40px] pt-[8px] w-[193px] h-[41px] items-center text-white'>
                             <div className='mx-auto flex gap-[15px] fill-current '>
                             <p className={'  ' + (mode === 'off' ? 'text-[#000000]' : 'text-[#fff]')}  >{t.logout}</p>
                                 <img src={mode === 'off' ? Logout : LogoutDark} alt="icon" />
