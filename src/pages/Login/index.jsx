@@ -1,40 +1,50 @@
 import React, { useState, useEffect } from "react";
 import Logo from "../../assets/images/logo.png";
-import { Link, useNavigate, useLocation } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { Formik } from "formik";
 import * as Yup from "yup";
 import LOGIN from "../../servise/auth";
-import { useGuard } from "../../hooks/useAuthGuard";
 
 const index = () => {
-    let redirect = useNavigate();
-  const userLogin = (userData) => {
-    if (
-      ("" + userData.phoneNumber).length == 0 ||("" + userData.password).length === 0) {
-      alert("Iltimos ma'lumotlaringizni kiriting");
-    } else {
-      LOGIN.auth(userData).then((res) => {
-        if (res.status == 200) {
-          if (res.data.statusCode == 200) {
-            //code
-            localStorage.setItem('token', res.data.data.accessToken);
-            redirect("/");
-            refreshPage();
-          } else {
-            alert(res.data.message);
-          }
-        } else if (res.status == 401) {
-        } else if (res.status == 403) {
-          alert("Kirishga ruxsat yo'q");
-        }
-      });
-    }
+  let redirect = useNavigate();
+
+  const saveData = (token, user) => {
+    localStorage.setItem("token", token);
+    localStorage.setItem("user", JSON.stringify(user));
+    console.log("saqladi");
   };
 
-  function refreshPage() {
-    window.location.reload(false);
-  }
+  const removeData = () => {
+    localStorage.removeItem("token");
+    localStorage.removeItem("user");
+  };
 
+  const userLogin = (userData) => {
+    if (
+      ("" + userData.phoneNumber).length == 0 ||
+      ("" + userData.password).length === 0
+    ) {
+      alert("Iltimos ma'lumotlaringizni kiriting");
+    } else {
+      LOGIN.auth(userData)
+        .then((res) => {
+          if (res.status == 200) {
+            if (res.data.statusCode == 200) {
+              saveData(res.data.data.accessToken, res.data.data);
+              redirect("/");
+            } else {
+              alert(res.data.message);
+            }
+          } else if (res.status == 401) {
+          } else if (res.status == 403) {
+            alert("Kirishga ruxsat yo'q");
+          }
+        })
+        .catch((err) => {
+          console.error("login error", err);
+        });
+    }
+  };
 
   return (
     <>

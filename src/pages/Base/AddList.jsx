@@ -45,6 +45,7 @@ const AddList = () => {
                             API.getStore().then((res) => {
                                 if (res.status == 200) {
                                     setData(res.data.data);
+                                    
                                 }
                             });
                         });

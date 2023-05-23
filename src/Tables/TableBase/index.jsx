@@ -15,9 +15,10 @@ const index = ({ setMode, setLang }) => {
                 setData(res.data.data);
             }
         });
+        
     }, []);
 
-
+    
     const { mode, LANG, lang } = useContext(context);
 
     const t = LANG[lang.toLowerCase()];

@@ -1,11 +1,32 @@
-import React, { useState, useContext } from 'react';
+import React, { useState, useContext, useEffect } from 'react';
 import { context } from '../../context/context';
 import { Link } from 'react-router-dom';
 import TableActive from '../../Tables/TableActive'
 import { Formik } from 'formik';
-import * as Yup from 'yup'
+import * as Yup from 'yup';
+import API from '../../api/API'
 
 const AddList = () => {
+
+    const [data, setData] = useState([]);
+    
+    useEffect(() => {
+        API.getStore().then((res) => {
+            if (res.status == 200) {
+                let list = [];
+                res.data.data.map((item) => {
+                    if(!list.includes(item.name)) {
+                        list.push({id: item.id, name: item.name});
+                    }
+                    console.log(list)
+                });
+
+                setData(list);
+            }
+        });
+
+        
+    }, []);
 
     const {mode, LANG, lang } = useContext(context);
 
@@ -36,7 +57,16 @@ const AddList = () => {
                         address: Yup.string().max(5, "Faqat bechtagacha belgi kiritish mumkin").required("Maydonni to'ldiring!"),
                     })}
                     onSubmit={(values)=>{
-                    }}
+                        API.create(values).then(res => {
+                            API.getStore().then((res) => {
+                                if (res.status == 200) {
+                                    setData(res.data.data);       
+                                }
+                                console.log(API)
+                            });
+                        });
+                    }
+                    }
                     >
                         {({values, errors, handleSubmit, handleChange, touched})=>{
                             console.log(errors)
@@ -44,9 +74,10 @@ const AddList = () => {
                                     
                                     <select onChange={handleChange} name="select" id="" className='form-control bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5 dark:border-gray-600 '>
                                         <option selected disabled >{t.selectRele}</option>
-                                        <option value="">1</option>
-                                        <option value="">2</option>
-                                        <option value="">3</option>
+                                        {data.map((item) =>{
+                                            return<option value={item.id}>{item.name}</option>
+                                        })}
+                                        
                                     </select>
                                     {errors.select && touched.select && <p className=' text-red-600 text-xs'>{errors.select}</p>}
 
