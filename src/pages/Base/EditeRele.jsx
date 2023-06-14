@@ -1,19 +1,34 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import { context } from "../../context/context";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate, useLocation } from "react-router-dom";
 import TableBase from "../../Tables/TableBase";
 import { Formik } from "formik";
 import * as Yup from "yup";
 import API from "../../api/API";
+import { useParams } from 'react-router';
 
-const AddList = () => {
+const EditeRele = () => {
   const { mode, LANG, lang } = useContext(context);
-  let navigate = useNavigate();
 
-  const [data, setData] = useState([]);
+  const [data, setData] = useState({
+    name: "",
+    number: "",
+    createdDate: null,
+    duration: 0,
+  });
+  const location = useLocation();
+
+  const { id } = useParams();
+
+  useEffect(() => {
+    API.getById(id).then((data) => {
+        if(data){
+            setData(data);
+        }
+    });
+  }, []);
 
   const t = LANG[lang.toLowerCase()];
-
   const theme = mode ? "off" : "on";
 
   const headerStyle = {
@@ -26,11 +41,12 @@ const AddList = () => {
       <div className="bg-[#F8F8F8] pt-4">
         <div className="wrapper w-[1088px] px-[43px] py-[15px] rounded-[20px] ml-[30px] bg-[#EEEEEE] drop-shadow-md">
           <Formik
+            enableReinitialize={true}
             initialValues={{
-              name: "",
-              number: "",
-              createdDate: "",
-              duration: "",
+              name: data.name,
+              number: data.number,
+              createdDate: data.createdDate,
+              duration: data.duration,
             }}
             validationSchema={Yup.object({
               name: Yup.string()
@@ -48,7 +64,6 @@ const AddList = () => {
               API.create(values).then((res) => {
                 API.getStore().then((data) => {
                   setData(data);
-                  navigate('/active');
                 });
               });
             }}
@@ -113,17 +128,16 @@ const AddList = () => {
                     type="submit"
                     className="mt-4 btn w-100 btn-primary bg-[#FEAF00] "
                   >
-                    {t.addrele}
+                    Taxrirlash
                   </button>
                 </form>
               );
             }}
           </Formik>
         </div>
-        <TableBase />
       </div>
     </>
   );
 };
 
-export default AddList;
+export default EditeRele;

@@ -1,7 +1,7 @@
-import axios from "axios";
+import axios from '../servise/axios';
 
 const LOGIN = {
-    auth: (data) =>axios.post('/users/login', data),
+    auth: (data) =>axios.requestData('POST','/users/login', data),
 }
 
 export  default LOGIN;

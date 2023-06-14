@@ -17,13 +17,17 @@ const index = () => {
     const [post, setPost] = useState([]);
     const [load, setLoad] = useState(false);
 
-    const [data, setData] = useState([]);
+    const [store, setStore] = useState(null);
+    const [active, setActive] = useState(null);
+    const [repair, setRepair] = useState(null);
+    const [deadline, setDeadline] = useState(null);
     
     useEffect(() => {
-        API.getStore().then((res) => {
-            if (res.status == 200) {
-                setData(res.data.data);
-            }
+        API.status().then((data) => {
+             setStore(data.store);
+             setActive(data.active);
+             setRepair(data.repair);
+             setDeadline(data.deadline);
         });
         
     }, []);
@@ -58,22 +62,22 @@ const index = () => {
                     <Link to='/base' className='home__wrapper--stud'>
                         <img className='home__wrapper--stud-img' src={Base} />
                         <p className='home__wrapper--stud-title'>{t.base}</p>
-                        <p className='home__wrapper--stud-text'>{data.length}</p>
+                        <p className='home__wrapper--stud-text'>{store}</p>
                     </Link>
                     <Link to='active' className='home__wrapper--course'>
                         <img className='home__wrapper--course-img' src={Active} />
                         <p className='home__wrapper--course-title'>{t.active}</p>
-                        <p className='home__wrapper--course-text'>13 </p>
+                        <p className='home__wrapper--course-text'>{active} </p>
                     </Link>
                     <Link to='/pay' className='home__wrapper--pay'>
                         <img className='home__wrapper--pay-img' src={Repair} />
                         <p className='home__wrapper--pay-title'>{t.repair}</p>
-                        <p className='home__wrapper--pay-text'>{post.length}</p>
+                        <p className='home__wrapper--pay-text'>{repair}</p>
                     </Link>
                     <div className='home__wrapper--user'>
                         <img className='home__wrapper--user-img' src={Bell} />
                         <p className='home__wrapper--user-title'>{t.warning}</p>
-                        <p className='home__wrapper--user-text'>3</p>
+                        <p className='home__wrapper--user-text'>{deadline}</p>
                     </div>
                 </div>
             </div>

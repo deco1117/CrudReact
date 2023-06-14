@@ -1,10 +1,25 @@
 import React from 'react';
 import Logo from '../../assets/images/logo.png';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { Formik } from 'formik';
 import * as Yup from 'yup'
+import API from "../../api/API";
 
 const EditUser = () => {
+
+    let navigate = useNavigate();
+
+    // const [data, setData] = useState([]);
+    // const [load, setLoad] = useState(false);
+
+    // function editUser(id, data) {
+    //     API.editUser(id, data).then((data1) => {
+
+    //     });
+    //   }
+
+      const user = JSON.parse(localStorage.getItem('user'));
+
     return (
         <div>
                <div className='container'>
@@ -17,14 +32,14 @@ const EditUser = () => {
                             </div>
                             <Formik initialValues={{
 
-                                fname: 'Davronbek',
-                                sname:'Matvaliyev',
-                                fatherName: "Abdulhoshim o'g'li",
-                                station: 'Chuqursoy',
-                                position: 'Elektomexanik',
-                                phoneNumber: '+998903591117',
-                                password: 'deco2122',
-                                repassword: 'deco2122',
+                                fname: user.firstName,
+                                sname: user.secondName,
+                                fatherName:  user.lastName,
+                                station: user.station,
+                                position: user.position,
+                                phoneNumber: user.phoneNumber,
+                                password: user.password,
+                                repassword: user.repassword,
                             }}
                             
                             validationSchema={Yup.object({
@@ -38,9 +53,22 @@ const EditUser = () => {
                                 password: Yup.string().min(6, "Parol kamida oltita belgidan iborat bo'lishi kerak").required("Maydonni to'ldiring!").matches(/[a-zA-Z]/, 'Parol faqat lotin harflaridan iborat bolishi kerak'),
                                 repassword: Yup.string().min(6, "Parol kamida oltita belgidan iborat bo'lishi kerak").required("Maydonni to'ldiring!").matches(/[a-zA-Z]/, 'Parol faqat lotin harflaridan iborat bolishi kerak').oneOf([Yup.ref('password'), null], "Parol bir xil bo'lishi kerak")
                             })}
-                            onSubmit={(values)=>{
-
-                            }}
+                            onSubmit={(values) => {
+                                console.log(values)
+                                  API.editUser(user.id, {
+                                    firstName: values.fname,
+                                    secondName: values.sname,
+                                    lastName: values.fatherName,
+                                    station: values.station,
+                                    position: values.position,
+                                    phoneNumber: values.phoneNumber,
+                                    password: values.password,
+                                    repassword: values.repassword
+                                  }).then((data) => {
+                                    window.localStorage.clear();
+                                    navigate('/login');
+                                });
+                              }}
                             
                             >
                                 {({values, errors, handleSubmit, handleChange, touched})=>{
@@ -65,7 +93,7 @@ const EditUser = () => {
                                             </div>
                                             <div>
                                                 <label className='text-[14px] font-medium text-[#6C6C6C]'>Stansiyani kiriting</label>
-                                                <input className='form-control w-[455px] border-[#FEAF00]' type='text' placeholder='Stansiya' name='station' onChange={handleChange} value={values.station}/>
+                                                <input readOnly className='form-control w-[455px] border-[#FEAF00]' type='text' placeholder='Stansiya' name='station' onChange={handleChange} value={values.station}/>
                                                 {errors.station && touched.station && <p className=' text-red-600 text-xs'>{errors.station}</p>}
                                             </div> 
                                         </div>
@@ -77,7 +105,7 @@ const EditUser = () => {
                                             </div>
                                             <div>
                                                 <label className='text-[14px] font-medium text-[#6C6C6C] '>Telefon raqamingizni kiriting</label>
-                                                <input className='form-control w-[455px] border-[#FEAF00]' type='tel' placeholder='+998' name='phoneNumber' onChange={handleChange} value={values.phoneNumber}/>
+                                                <input readOnly className='form-control w-[455px] border-[#FEAF00]' type='tel' placeholder='+998' name='phoneNumber' onChange={handleChange} value={values.phoneNumber}/>
                                                 {errors.phoneNumber && touched.phoneNumber && <p className=' text-red-600 text-xs'>{errors.phoneNumber}</p>}
                                             </div> 
                                         </div>
@@ -93,7 +121,7 @@ const EditUser = () => {
                                                 {errors.repassword && touched.repassword && <p className=' text-red-600 text-xs'>{errors.repassword}</p>}
                                             </div> 
                                         </div>
-                                        <button to='/home' type='submit' className='btn w-100 bg-[#FEAF00] mt-[30px]'>o'zgartirish</button>
+                                        <button  type='submit' className='btn w-100 bg-[#FEAF00] mt-[30px]'>o'zgartirish</button>
                                 </form> 
                                 )          
                                 }}

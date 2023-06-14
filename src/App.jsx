@@ -22,6 +22,7 @@ import Registr from "./pages/Login/Registr";
 import EditUser from "./pages/User/EditUser";
 import Users from "./pages/Users";
 import { useGuard } from "./hooks/useAuthGuard";
+import EditRele from "./pages/Base/EditeRele"
 
 function App(props) {
   const isAuth = useGuard();
@@ -53,6 +54,7 @@ function App(props) {
               <Route path="/home" element={<Home />} />
               <Route path="/base" element={<Base />} />
               <Route path="/addList" element={<AddList />} />
+              <Route path="/editRele/:id" element={<EditRele />} />
               <Route path="/active" element={<Active />} />
               <Route path="/addActive" element={<AddAcrive />} />
               <Route path="/pay" element={<Repair />} />

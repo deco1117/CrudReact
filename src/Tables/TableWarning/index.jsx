@@ -7,7 +7,7 @@ const index = ({ setMode, setLang }) => {
   const [data, setData] = useState([]);
 
   useEffect(() => {
-    API.getActive().then((data) => {
+    API.getRepair2().then((data) => {
       setData(data);
     });
   }, []);
@@ -33,7 +33,7 @@ const index = ({ setMode, setLang }) => {
 
   return (
     <div>
-      <div className="">
+      <div className="mt-10 ml-6">
         <table class="table table-striped">
           <thead>
             <tr>

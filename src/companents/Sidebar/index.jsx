@@ -24,17 +24,15 @@ import { Link, NavLink, useNavigate } from 'react-router-dom';
 const index = () => {
         
     const { mode, LANG, lang } = useContext(context);
-
     const t = LANG[lang.toLowerCase()];
-
 
     const sidebarStyle = {
         backgroundColor: mode === 'off' ? '#F2EAE1' : '#2c2926',
         color: mode === 'off' ? 'black' : 'white'
     }
 
-    let admin = true;
-
+    const user = JSON.parse(localStorage.getItem('user'));
+    let admin = user.role === 'SuperAdmin';
 
     const logout = () => {
         console.log('logout');
@@ -56,8 +54,8 @@ const index = () => {
                     <div className='sidebar__admin'>
                         <img className='sidebar__admin--img' src={Avatar}></img>
                         <h2 className={' font-medium sidebar__admin--name text-[#937846] ' + (mode === 'off' ? 'text-[#000000]' : 'text-[#fff]')}>O'zbekiston temir yo'llari</h2>
-                        <h2 className={' mt-[5px] font-medium sidebar__admin--name text-[#937846] ' + (mode === 'off' ? 'text-[#000000]' : 'text-[#fff]')}>Chuqursoy stansiyasi</h2>
-                        <h2 className={' mt-[10px] font-medium sidebar__admin--name' + (mode === 'off' ? 'text-[#000000]' : 'text-[#fff]')}>Davronbek Matvaliyev</h2>
+                        <h2 className={' mt-[5px] font-medium sidebar__admin--name text-[#937846] ' + (mode === 'off' ? 'text-[#000000]' : 'text-[#fff]')}>{user.station} stansiyasi</h2>
+                        <h2 className={' mt-[10px] font-medium sidebar__admin--name' + (mode === 'off' ? 'text-[#000000]' : 'text-[#fff]')}>{user.firstName} {user.secondName}</h2>
                         <h3 className='sidebar__admin--role'>{t.role}</h3>
                     </div>
                     <div className=' flex flex-column items-center gap-[20px] my-[80px] mb-[124px]'>
@@ -117,10 +115,10 @@ const index = () => {
                         <img className='ml-[25px]' src={mode === 'off' ? Logo : LogoDark} alt="Logo" />
                     </div>
                     <div className='sidebar__admin'>
-                        <img className='sidebar__admin--img' src={Avatar}></img>
+                    <img className='sidebar__admin--img' src={Avatar}></img>
                         <h2 className={' font-medium sidebar__admin--name text-[#937846] ' + (mode === 'off' ? 'text-[#000000]' : 'text-[#fff]')}>O'zbekiston temir yo'llari</h2>
-                        <h2 className={' mt-[5px] font-medium sidebar__admin--name text-[#937846] ' + (mode === 'off' ? 'text-[#000000]' : 'text-[#fff]')}>Chuqursoy stansiyasi</h2>
-                        <h2 className={' mt-[10px] font-medium sidebar__admin--name' + (mode === 'off' ? 'text-[#000000]' : 'text-[#fff]')}>Davronbek Matvaliyev</h2>
+                        <h2 className={' mt-[5px] font-medium sidebar__admin--name text-[#937846] ' + (mode === 'off' ? 'text-[#000000]' : 'text-[#fff]')}>{user.station} stansiyasi</h2>
+                        <h2 className={' mt-[10px] font-medium sidebar__admin--name' + (mode === 'off' ? 'text-[#000000]' : 'text-[#fff]')}>{user.firstName} {user.secondName}</h2>
                         <h3 className='sidebar__admin--role'>{t.role}</h3>
                     </div>
                     <div className='flex flex-column items-center gap-[20px] my-[80px] mb-[124px]'>

@@ -1,23 +1,37 @@
 import React, { useState, useEffect, useContext } from "react";
 import { context } from "../../context/context";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Edit from "../../assets/images/edit.svg";
 import Del from "../../assets/images/del.svg";
 import API from "../../api/API";
+import EditRele from "../../pages/Base/EditeRele"
 
 const index = ({ setMode, setLang }) => {
 
     const [data, setData] = useState([]);
-    
-    useEffect(() => {
-        API.getStore().then((res) => {
-            if (res.status == 200) {
-                setData(res.data.data);
-            }
-        });
-        
+
+    useEffect(() => { 
+        getStore();
     }, []);
 
+    function del(id) {
+        API.delete(id).then((data1) => {
+            getStore();
+        });
+      }
+
+      const getStore = (()=>{
+        API.getStore().then((data) => {
+            setData(data);
+        });
+      })
+
+        let navigate = useNavigate();
+      const handleSelect = (id) => {
+        navigate( {
+            pathname: `/editRele/${id}`
+        });
+      };
     
     const { mode, LANG, lang } = useContext(context);
 
@@ -62,18 +76,18 @@ const index = ({ setMode, setLang }) => {
                                             {item.name}
                                             </th>
                                             <td className="table-body">{item.number}</td>
-                                            <td className="table-body">{item.createdDate}</td>
+                                            <td className="table-body">{(new Date(item.createdDate)).toLocaleDateString()}</td>
                                             <td className="table-body">{item.duration}</td>
-                                            <td className="table-body">16.05.2021</td>
+                                            <td className="table-body">{(new Date(item.createdAt)).toLocaleDateString()}</td>
                                             <td className="table-body">
                                                 
-                                                <button className="btn btn-outline-warning p-2 border-[1px]">
+                                                <button onClick={()=>handleSelect(item.id)} className="btn btn-outline-warning p-2 border-[1px]" >
                                                     
                                                     <img src={Edit} />
                                                 </button>
-                                                <button className="btn btn-outline-danger p-2 ml-2 border-[1px]">
+                                                <button className="btn btn-outline-danger p-2 ml-2 border-[1px]" onClick={() => del(item.id)}>
                                                     
-                                                    <img src={Del} />
+                                                    <img src={Del}/>
                                                 </button>
                                             </td>
                                         </tr>

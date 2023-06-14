@@ -11,7 +11,6 @@ const index = () => {
   const saveData = (token, user) => {
     localStorage.setItem("token", token);
     localStorage.setItem("user", JSON.stringify(user));
-    console.log("saqladi");
   };
 
   const removeData = () => {
@@ -27,18 +26,9 @@ const index = () => {
       alert("Iltimos ma'lumotlaringizni kiriting");
     } else {
       LOGIN.auth(userData)
-        .then((res) => {
-          if (res.status == 200) {
-            if (res.data.statusCode == 200) {
-              saveData(res.data.data.accessToken, res.data.data);
-              redirect("/");
-            } else {
-              alert(res.data.message);
-            }
-          } else if (res.status == 401) {
-          } else if (res.status == 403) {
-            alert("Kirishga ruxsat yo'q");
-          }
+        .then((data) => {
+            saveData(data.accessToken, data);
+            redirect("/");
         })
         .catch((err) => {
           console.error("login error", err);
